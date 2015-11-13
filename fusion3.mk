@@ -259,6 +259,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
+# Art
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-swap=false
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.mode=endfire \
@@ -284,6 +288,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.input.noresample=1
 
 # QMI
+PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.qmi.adb_logmask=0
 
 # OpenGL ES 3.0
