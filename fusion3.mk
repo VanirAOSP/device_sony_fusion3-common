@@ -71,7 +71,8 @@ PRODUCT_PACKAGES += \
 
 # Lights wrapper
 PRODUCT_PACKAGES += \
-    lights.msm8960
+    lights.msm8960 \
+    libshim_illumination_service
 
 # Media profile
 PRODUCT_COPY_FILES += \
@@ -163,15 +164,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
-# NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := $(COMMON_PATH)/rootdir/system/etc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(COMMON_PATH)/rootdir/system/etc/nfcee_access_debug.xml
-endif
-
 PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+    $(COMMON_PATH)/rootdir/system/etc/nfcee_access_debug.xml:system/etc/nfcee_access.xml
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/system/etc/kickstart_checker.sh:system/etc/kickstart_checker.sh
