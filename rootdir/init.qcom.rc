@@ -24,7 +24,7 @@ on early-init
 
 on init
     # Shim for libraries
-    export LD_SHIM_LIBS /system/lib/hw/camera.vendor.qcom.so|libshim_camera.so:/system/lib/libcald_pal.so|libshim_cald.so:/system/bin/illumination_service|libshim_illumination_service.so:/system/bin/mpdecision|libshim_mpdecision.so
+    export LD_SHIM_LIBS /system/lib/hw/camera.vendor.qcom.so|libshim_camera.so:/system/lib/libcald_pal.so|libshim_cald.so:/system/bin/illumination_service|libshim_illumination_service.so
 
     symlink /dev/socket /tmp
 
@@ -380,6 +380,7 @@ service mpdecision /system/bin/mpdecision --avg_comp
     class main
     user root
     group root readproc
+    socket mpdecision stream 0660 root system
     disabled
 
 service wpa_supplicant /system/bin/wpa_supplicant \
